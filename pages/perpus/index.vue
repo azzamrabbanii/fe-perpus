@@ -32,15 +32,15 @@
             <div v-if="onEdit" class="mt-5">
                 <b-form @submit="onSubmitEdit">
                     <b-form-group id="input-group-1" label="nama:" label-for="input-1">
-                        <b-form-input v-model="form_edit.namaPeminjam" placeholder="Enter nama peminjam" required>
+                        <b-form-input v-model="form_edit.namaPeminjam" placeholder="nama peminjam" required>
                         </b-form-input>
                     </b-form-group>
                     <b-form-group id="input-group-2" label="nama buku:" label-for="input-2">
-                        <b-form-input v-model="form_edit.namaBuku" placeholder="Enter nama buku" required>
+                        <b-form-input v-model="form_edit.namaBuku" placeholder="nama buku" required>
                         </b-form-input>
                     </b-form-group>
                     <b-form-group id="input-group-2" label="Date:" label-for="input-2">
-                            <b-form-input id="input-2" v-model="form.tanggalPinjam" placeholder="tanggal pinjam" required>
+                            <b-form-input id="input-2" v-model="form_edit.tanggalPinjam" placeholder="tanggal pinjam" required>
                             </b-form-input>
                     </b-form-group>
                     <b-button type="submit" variant="primary">Submit</b-button>
@@ -120,7 +120,7 @@ export default {
             event.preventDefault();
             try {
                 await this.$axios.$put(
-                    `http://localhost:35000/users/perpus/` + this.form_edit.id,
+                    "http://localhost:35000/users/perpus/" + this.form_edit.id,
                     this.form_edit
                 );
                 this.getapi();
